@@ -15,6 +15,7 @@
 		B5485A9B19EA09EE00FFC5AE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5485A9A19EA09EE00FFC5AE /* Images.xcassets */; };
 		B5485A9E19EA09EE00FFC5AE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5485A9C19EA09EE00FFC5AE /* LaunchScreen.xib */; };
 		B5485AAA19EA09EE00FFC5AE /* Shew_v4Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = B5485AA919EA09EE00FFC5AE /* Shew_v4Tests.m */; };
+		B5485ABB19EA8EE000FFC5AE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5485ABA19EA8EE000FFC5AE /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,8 @@
 		B5485AA319EA09EE00FFC5AE /* Shew_v4Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Shew_v4Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5485AA819EA09EE00FFC5AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5485AA919EA09EE00FFC5AE /* Shew_v4Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Shew_v4Tests.m; sourceTree = "<group>"; };
+		B5485AB919EA8EE000FFC5AE /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ../LoginViewController.h; sourceTree = "<group>"; };
+		B5485ABA19EA8EE000FFC5AE /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ../LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,8 @@
 		B5485A8919EA09EE00FFC5AE /* Shew_v4 */ = {
 			isa = PBXGroup;
 			children = (
+				B5485AB919EA8EE000FFC5AE /* LoginViewController.h */,
+				B5485ABA19EA8EE000FFC5AE /* LoginViewController.m */,
 				B5485A8E19EA09EE00FFC5AE /* AppDelegate.h */,
 				B5485A8F19EA09EE00FFC5AE /* AppDelegate.m */,
 				B5485A9419EA09EE00FFC5AE /* ViewController.h */,
@@ -226,6 +231,7 @@
 				B5485A9019EA09EE00FFC5AE /* AppDelegate.m in Sources */,
 				B5485A9619EA09EE00FFC5AE /* ViewController.m in Sources */,
 				B5485A8D19EA09EE00FFC5AE /* main.m in Sources */,
+				B5485ABB19EA8EE000FFC5AE /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +353,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Shew_v4/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -357,6 +364,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Shew_v4/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
