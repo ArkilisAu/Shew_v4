@@ -16,6 +16,9 @@
 		B5485A9E19EA09EE00FFC5AE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5485A9C19EA09EE00FFC5AE /* LaunchScreen.xib */; };
 		B5485AAA19EA09EE00FFC5AE /* Shew_v4Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = B5485AA919EA09EE00FFC5AE /* Shew_v4Tests.m */; };
 		B5485ABB19EA8EE000FFC5AE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5485ABA19EA8EE000FFC5AE /* LoginViewController.m */; };
+		B553CD6E19F0715C0083177E /* DBChooser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B553CD6C19F0715C0083177E /* DBChooser.bundle */; };
+		B553CD6F19F0715C0083177E /* DBChooser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B553CD6D19F0715C0083177E /* DBChooser.framework */; };
+		B5B1CB2E19F1BDFB00AB726F /* SendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5B1CB2D19F1BDFB00AB726F /* SendViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,10 @@
 		B5485AA919EA09EE00FFC5AE /* Shew_v4Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Shew_v4Tests.m; sourceTree = "<group>"; };
 		B5485AB919EA8EE000FFC5AE /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ../LoginViewController.h; sourceTree = "<group>"; };
 		B5485ABA19EA8EE000FFC5AE /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ../LoginViewController.m; sourceTree = "<group>"; };
+		B553CD6C19F0715C0083177E /* DBChooser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DBChooser.bundle; sourceTree = "<group>"; };
+		B553CD6D19F0715C0083177E /* DBChooser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DBChooser.framework; sourceTree = "<group>"; };
+		B5B1CB2C19F1BDFB00AB726F /* SendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendViewController.h; sourceTree = "<group>"; };
+		B5B1CB2D19F1BDFB00AB726F /* SendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B553CD6F19F0715C0083177E /* DBChooser.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +76,8 @@
 		B5485A7E19EA09EE00FFC5AE = {
 			isa = PBXGroup;
 			children = (
+				B553CD6C19F0715C0083177E /* DBChooser.bundle */,
+				B553CD6D19F0715C0083177E /* DBChooser.framework */,
 				B5485A8919EA09EE00FFC5AE /* Shew_v4 */,
 				B5485AA619EA09EE00FFC5AE /* Shew_v4Tests */,
 				B5485A8819EA09EE00FFC5AE /* Products */,
@@ -86,6 +96,8 @@
 		B5485A8919EA09EE00FFC5AE /* Shew_v4 */ = {
 			isa = PBXGroup;
 			children = (
+				B5B1CB2C19F1BDFB00AB726F /* SendViewController.h */,
+				B5B1CB2D19F1BDFB00AB726F /* SendViewController.m */,
 				B5485AB919EA8EE000FFC5AE /* LoginViewController.h */,
 				B5485ABA19EA8EE000FFC5AE /* LoginViewController.m */,
 				B5485A8E19EA09EE00FFC5AE /* AppDelegate.h */,
@@ -208,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5485A9919EA09EE00FFC5AE /* Main.storyboard in Resources */,
+				B553CD6E19F0715C0083177E /* DBChooser.bundle in Resources */,
 				B5485A9E19EA09EE00FFC5AE /* LaunchScreen.xib in Resources */,
 				B5485A9B19EA09EE00FFC5AE /* Images.xcassets in Resources */,
 			);
@@ -227,6 +240,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5B1CB2E19F1BDFB00AB726F /* SendViewController.m in Sources */,
 				B5485A9319EA09EE00FFC5AE /* Shew_v4.xcdatamodeld in Sources */,
 				B5485A9019EA09EE00FFC5AE /* AppDelegate.m in Sources */,
 				B5485A9619EA09EE00FFC5AE /* ViewController.m in Sources */,
@@ -354,6 +368,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Shew_v4/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -365,6 +383,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Shew_v4/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -424,6 +446,7 @@
 				B5485AAF19EA09EE00FFC5AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B5485AB019EA09EE00FFC5AE /* Build configuration list for PBXNativeTarget "Shew_v4Tests" */ = {
 			isa = XCConfigurationList;
@@ -432,6 +455,7 @@
 				B5485AB219EA09EE00FFC5AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
