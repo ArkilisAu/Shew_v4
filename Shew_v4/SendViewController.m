@@ -9,6 +9,8 @@
 #import "SendViewController.h"
 #import <DBChooser/DBChooser.h>
 #import <DBChooser/DBChooserResult.h>
+#import "Common.h"
+
 
 @implementation SendViewController
 {
@@ -28,7 +30,7 @@
              // Process results from Chooser
              _result = results[0];
              _label_FileName.text= _result.name;
-             _label_FileSize.text= [NSString stringWithFormat: @"%lld", _result.size];
+             _label_FileSize.text= [NSString stringWithFormat: @"%lld Bytes", _result.size];
 
              
          } else {
@@ -38,5 +40,33 @@
          }
      }];
 }
+
+// Shew the file button
+- (IBAction)btnShew:(UIButton *)sender {
+    if ([@"" compare:_label_FileName.text]==NSOrderedSame
+        || [@"" compare:_label_FileSize.text]==NSOrderedSame)
+    {
+        [Common alertStatus:@"Emepty File name or File Size!" :@"Invalid File!" :0];
+    }
+    else{
+        
+    }
+    
+    // shew the file
+    
+}
+
+/*
+- (void) alertStatus:(NSString *)msg :(NSString *)title :(int) tag
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
+                                                        message:msg
+                                                       delegate:self
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil, nil];
+    alertView.tag = tag;
+    [alertView show];
+}
+ */
 
 @end

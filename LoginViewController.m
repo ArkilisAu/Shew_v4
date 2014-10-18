@@ -7,6 +7,8 @@
 //
 
 #import "LoginViewController.h"
+#import "Common.h"
+
 
 @implementation LoginViewController
 
@@ -16,7 +18,7 @@
         
         if([[self.text_email text] isEqualToString:@""] || [[self.text_password text] isEqualToString:@""] ) {
             
-            [self alertStatus:@"Please enter Email and Password" :@"Sign in Failed!" :0];
+            [Common alertStatus:@"Please enter Email and Password" :@"Sign in Failed!" :0];
             
         } else {
             NSString *post =[[NSString alloc] initWithFormat:@"username=%@&password=%@",[self.text_email text],[self.text_password text]];
@@ -65,24 +67,30 @@
                 } else {
                     
                     NSString *error_msg = (NSString *) jsonData[@"error_message"];
-                    [self alertStatus:error_msg :@"Sign in Failed!" :0];
+                    [Common alertStatus:error_msg :@"Sign in Failed!" :0];
                 }
                 
             } else {
                 //if (error) NSLog(@"Error: %@", error);
-                [self alertStatus:@"Connection Failed" :@"Sign in Failed!" :0];
+                [Common alertStatus:@"Connection Failed" :@"Sign in Failed!" :0];
             }
         }
     }
     @catch (NSException * e) {
         NSLog(@"Exception: %@", e);
-        [self alertStatus:@"Sign in Failed." :@"Error!" :0];
+        [Common alertStatus:@"Sign in Failed." :@"Error!" :0];
     }
+    
+    // Login Success code
     if (success) {
+        
+        
+        // Go to the other view controller
         [self performSegueWithIdentifier:@"login_success" sender:self];
     }
 }
 
+/*
 - (void) alertStatus:(NSString *)msg :(NSString *)title :(int) tag
 {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
@@ -93,5 +101,6 @@
     alertView.tag = tag;
     [alertView show];
 }
+ */
 
 @end
