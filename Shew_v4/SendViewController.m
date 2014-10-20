@@ -48,11 +48,20 @@
     {
         [Common alertStatus:@"Emepty File name or File Size!" :@"Invalid File!" :0];
     }
+    // shew the file
     else{
+        
+        NSLog(@"I am here");
+        // get the current location
+        Common *common = [[Common alloc] init];
+        [common initLocation];
+        NSLog(common.location);
+        
+        NSLog(@"I am here 2");
         
     }
     
-    // shew the file
+    
     
 }
 

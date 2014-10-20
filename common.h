@@ -7,13 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface Common : NSObject 
+@interface Common : NSObject <CLLocationManagerDelegate>
 
+// property location
+@property (copy) NSString *location;
+//@property CLLocationManager *locationManager;
 
 // Static Declaration on alert
 + (void) alertStatus:(NSString *)msg :(NSString *)title :(int) tag;
 
-//
+
+// member function delaration
+- (void)initLocation;
+
 
 @end
