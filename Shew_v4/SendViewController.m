@@ -53,7 +53,8 @@
     
     
     if (_label_FileName.text==(id)[NSNull null] || _label_FileName.text.length==0 ||
-        _label_FileSize.text==(id)[NSNull null] || _label_FileSize.text.length==0  )
+        _label_FileSize.text==(id)[NSNull null] || _label_FileSize.text.length==0 ||
+        _fileurl==(id)[NSNull null] || _fileurl.length==0)
     {
         [Common alertStatus:@"Emepty File name or File Size!" :@"Invalid File!" :0];
     }
