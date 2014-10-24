@@ -33,10 +33,11 @@
              _label_FileSize.text= [NSString stringWithFormat: @"%lld Bytes", _result.size];
              _fileurl=_result.link;
 
+             // add file size detection, if the file size is 0 bytes. Then give notification
              
          } else {
              // User canceled the action
-             NSLog(@"Returned 3!");
+             [Common alertStatus:@"You did not select any file" :@"Invalid File!" :0];
              //NSLog(@"The coutn value is %@", _result);
          }
      }];
@@ -53,8 +54,7 @@
     
     
     if (_label_FileName.text==(id)[NSNull null] || _label_FileName.text.length==0 ||
-        _label_FileSize.text==(id)[NSNull null] || _label_FileSize.text.length==0 ||
-        _fileurl==(id)[NSNull null] || _fileurl.length==0)
+        _label_FileSize.text==(id)[NSNull null] || _label_FileSize.text.length==0 )
     {
         [Common alertStatus:@"Emepty File name or File Size!" :@"Invalid File!" :0];
     }
