@@ -9,18 +9,31 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface Common : NSObject <CLLocationManagerDelegate>
+@interface Common : UIViewController <CLLocationManagerDelegate>
+
+// property user id
++(int)userid;
+
++(void)setUserid: (int)uid;
 
 // property location
 @property (copy) NSString *location;
-//@property CLLocationManager *locationManager;
+
+// property location Manager
+@property (nonatomic,retain) CLLocationManager *locationManager;
 
 // Static Declaration on alert
 + (void) alertStatus:(NSString *)msg :(NSString *)title :(int) tag;
 
+// property
+@property (copy) NSString *url;
 
 // member function delaration
-- (void)initLocation;
+//- (void)initLocation;
+- (NSString *)deviceLocation;
+- (void)viewDidLoad;
+- (void)postToAction:(NSString *)content;
+
 
 
 @end

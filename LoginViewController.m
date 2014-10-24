@@ -21,10 +21,10 @@
             [Common alertStatus:@"Please enter Email and Password" :@"Sign in Failed!" :0];
             
         } else {
-            NSString *post =[[NSString alloc] initWithFormat:@"username=%@&password=%@",[self.text_email text],[self.text_password text]];
+            NSString *post =[[NSString alloc] initWithFormat:@"email=%@&password=%@",[self.text_email text],[self.text_password text]];
             NSLog(@"PostData: %@",post);
             
-            NSURL *url=[NSURL URLWithString:@"http://54.210.200.34/test.php"];
+            NSURL *url=[NSURL URLWithString:@"http://54.210.200.34/login.php"];
             
             NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
             
@@ -63,6 +63,9 @@
                 if(success == 1)
                 {
                     // Login Success
+                    Common.userid= [jsonData[@"userid"] integerValue];
+                    //NSLog(@"Userid assignment: %s", Common.userid);
+
                     NSLog(@"Login SUCCESS");
                 } else {
                     
@@ -83,8 +86,6 @@
     
     // Login Success code
     if (success) {
-        
-        
         // Go to the other view controller
         [self performSegueWithIdentifier:@"login_success" sender:self];
     }

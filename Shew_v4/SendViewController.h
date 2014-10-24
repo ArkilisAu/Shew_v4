@@ -12,5 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *label_FileName;
 @property (weak, nonatomic) IBOutlet UILabel *label_FileSize;
+@property NSString *fileurl;
 
 @end

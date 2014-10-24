@@ -31,6 +31,7 @@
              _result = results[0];
              _label_FileName.text= _result.name;
              _label_FileSize.text= [NSString stringWithFormat: @"%lld Bytes", _result.size];
+             _fileurl=_result.link;
 
              
          } else {
@@ -43,26 +44,53 @@
 
 // Shew the file button
 - (IBAction)btnShew:(UIButton *)sender {
-    if ([@"" compare:_label_FileName.text]==NSOrderedSame
-        || [@"" compare:_label_FileSize.text]==NSOrderedSame)
+    
+    NSString *filename = _label_FileName.text;
+    NSString *filesize = _label_FileSize.text;
+    
+    NSLog(@"filename %@", filename);
+    NSLog(@"filesize %@", filesize);
+    
+    
+    if (_label_FileName.text==(id)[NSNull null] || _label_FileName.text.length==0 ||
+        _label_FileSize.text==(id)[NSNull null] || _label_FileSize.text.length==0  )
     {
         [Common alertStatus:@"Emepty File name or File Size!" :@"Invalid File!" :0];
     }
     // shew the file
     else{
-        
-        NSLog(@"I am here");
         // get the current location
         Common *common = [[Common alloc] init];
-        [common initLocation];
-        NSLog(common.location);
+        [common viewDidLoad];
+        [Common alertStatus:[common deviceLocation]:@"Location":0];
         
-        NSLog(@"I am here 2");
+        // post location to the server
+        NSString *send;
+        NSString *userid;
+        NSString *type;
+        NSString *latitude;
+        NSString *longitude;
+
         
-    }
-    
-    
-    
+        type= @"description=SEND";
+        userid= @"userid=1";
+        
+        NSString *location= [common deviceLocation];
+        NSArray *ary_location = [location componentsSeparatedByString:@","];
+        
+        latitude= ary_location[0];
+        longitude=ary_location[1];
+        
+        
+        //NSLog(latitude);
+        //NSLog(longitude);
+        NSLog(@"userid in shew:%d", Common.userid);
+        
+        // Post data
+        send= [NSString stringWithFormat:@"userid=%d&%@&latitude=%@&longitude=%@&fileurl=%@", Common.userid, type, latitude, longitude, _fileurl];
+        [common postToAction:send];
+        
+   }
 }
 
 /*
