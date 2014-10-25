@@ -19,6 +19,18 @@
 }
 
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style: UIBarButtonItemStyleBordered target:self action:@selector(Back)];
+    self.navigationItem.leftBarButtonItem = backButton;
+}
+
+- (IBAction)Back
+{
+    [self dismissViewControllerAnimated:YES completion:nil]; // ios 6
+}
+
 - (IBAction)btnSelectFile:(UIButton *)sender {
     NSLog(@"Start!");
     

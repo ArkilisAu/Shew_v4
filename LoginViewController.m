@@ -12,6 +12,17 @@
 
 @implementation LoginViewController
 
+
+-(void)viewDidLoad{
+    
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"UI_BTN_BACK", nil) style:UIBarButtonItemStylePlain target:nil action:nil];
+    back.tintColor = UIColor.blackColor;
+    [[self navigationItem] setBackBarButtonItem:back];
+    
+    // Parent
+    [super viewDidLoad];
+}
+
 - (IBAction)btnLogin:(id)sender {
     NSInteger success = 0;
     @try {
