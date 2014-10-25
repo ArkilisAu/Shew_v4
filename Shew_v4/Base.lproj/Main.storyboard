@@ -16,15 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSn-QR-mLp">
-                                <rect key="frame" x="16" y="327" width="288" height="203"/>
-                                <state key="normal" title="Receive">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="xUO-kH-8Lq" kind="presentation" id="DHc-ra-qzP"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWe-WZ-lUI">
                                 <rect key="frame" x="16" y="72" width="288" height="203"/>
                                 <state key="normal" title="Send">
@@ -32,6 +23,15 @@
                                 </state>
                                 <connections>
                                     <segue destination="Etz-vY-kbA" kind="presentation" id="PYV-c6-Zkv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSn-QR-mLp">
+                                <rect key="frame" x="16" y="327" width="288" height="203"/>
+                                <state key="normal" title="Receive">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="xUO-kH-8Lq" kind="presentation" id="DHc-ra-qzP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -45,10 +45,10 @@
             </objects>
             <point key="canvasLocation" x="396" y="213"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Recv Table View Controller-->
         <scene sceneID="sHs-0k-9Qi">
             <objects>
-                <tableViewController id="DLe-Na-bQv" sceneMemberID="viewController">
+                <tableViewController id="DLe-Na-bQv" customClass="RecvTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="D6k-eu-Ub7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -21,7 +21,7 @@
 		B5B1CB2E19F1BDFB00AB726F /* SendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5B1CB2D19F1BDFB00AB726F /* SendViewController.m */; };
 		B5B1CB3419F30C5600AB726F /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = B5B1CB3319F30C5600AB726F /* Common.m */; };
 		B5B1CB3619F30E7F00AB726F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B1CB3519F30E7F00AB726F /* CoreLocation.framework */; };
-		B5C676AB19FC45A200B8121B /* RecvViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C676AA19FC45A200B8121B /* RecvViewController.m */; };
+		B5C676AE19FC4D2000B8121B /* RecvTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C676AD19FC4D2000B8121B /* RecvTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,8 +58,8 @@
 		B5B1CB3219F30C5600AB726F /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Common.h; path = ../Common.h; sourceTree = "<group>"; };
 		B5B1CB3319F30C5600AB726F /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Common.m; path = ../Common.m; sourceTree = "<group>"; };
 		B5B1CB3519F30E7F00AB726F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		B5C676A919FC45A200B8121B /* RecvViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecvViewController.h; sourceTree = "<group>"; };
-		B5C676AA19FC45A200B8121B /* RecvViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecvViewController.m; sourceTree = "<group>"; };
+		B5C676AC19FC4D2000B8121B /* RecvTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecvTableViewController.h; path = ../RecvTableViewController.h; sourceTree = "<group>"; };
+		B5C676AD19FC4D2000B8121B /* RecvTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecvTableViewController.m; path = ../RecvTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +108,8 @@
 			children = (
 				B5B1CB3219F30C5600AB726F /* Common.h */,
 				B5B1CB3319F30C5600AB726F /* Common.m */,
+				B5C676AC19FC4D2000B8121B /* RecvTableViewController.h */,
+				B5C676AD19FC4D2000B8121B /* RecvTableViewController.m */,
 				B5B1CB2C19F1BDFB00AB726F /* SendViewController.h */,
 				B5B1CB2D19F1BDFB00AB726F /* SendViewController.m */,
 				B5485AB919EA8EE000FFC5AE /* LoginViewController.h */,
@@ -117,8 +119,6 @@
 				B5485A9419EA09EE00FFC5AE /* ViewController.h */,
 				B5485A9519EA09EE00FFC5AE /* ViewController.m */,
 				B5485A9719EA09EE00FFC5AE /* Main.storyboard */,
-				B5C676A919FC45A200B8121B /* RecvViewController.h */,
-				B5C676AA19FC45A200B8121B /* RecvViewController.m */,
 				B5485A9A19EA09EE00FFC5AE /* Images.xcassets */,
 				B5485A9C19EA09EE00FFC5AE /* LaunchScreen.xib */,
 				B5485A9119EA09EE00FFC5AE /* Shew_v4.xcdatamodeld */,
@@ -257,10 +257,10 @@
 				B5B1CB2E19F1BDFB00AB726F /* SendViewController.m in Sources */,
 				B5485A9319EA09EE00FFC5AE /* Shew_v4.xcdatamodeld in Sources */,
 				B5485A9019EA09EE00FFC5AE /* AppDelegate.m in Sources */,
+				B5C676AE19FC4D2000B8121B /* RecvTableViewController.m in Sources */,
 				B5485A9619EA09EE00FFC5AE /* ViewController.m in Sources */,
 				B5485A8D19EA09EE00FFC5AE /* main.m in Sources */,
 				B5485ABB19EA8EE000FFC5AE /* LoginViewController.m in Sources */,
-				B5C676AB19FC45A200B8121B /* RecvViewController.m in Sources */,
 				B5B1CB3419F30C5600AB726F /* Common.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
