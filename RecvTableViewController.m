@@ -55,10 +55,10 @@
     
     
     // populate the table view
-    /*
+    
      self.tableList.delegate = self;
      self.tableList.dataSource = self;
-     */
+     
     
     // Setup refresh control for example app
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
@@ -122,6 +122,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return _feedItems.count;
 }
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"cell selected at index path %ld:%ld", (long)indexPath.section, (long)indexPath.row);
