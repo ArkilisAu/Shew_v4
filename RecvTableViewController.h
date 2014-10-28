@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "HomeModel.h"
+#import "SWTableViewCell.h"
 
-@interface RecvTableViewController : UITableViewController  <UITableViewDataSource, UITableViewDelegate, HomeModelProtocol>
+@interface RecvTableViewController : UITableViewController  <UITableViewDataSource, UITableViewDelegate, SWTableViewCellDelegate, HomeModelProtocol>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableList;
 
