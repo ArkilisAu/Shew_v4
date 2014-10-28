@@ -22,6 +22,8 @@
 		B5B1CB3419F30C5600AB726F /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = B5B1CB3319F30C5600AB726F /* Common.m */; };
 		B5B1CB3619F30E7F00AB726F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B1CB3519F30E7F00AB726F /* CoreLocation.framework */; };
 		B5C676AE19FC4D2000B8121B /* RecvTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C676AD19FC4D2000B8121B /* RecvTableViewController.m */; };
+		B5C676B119FC68EB00B8121B /* SenderAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C676B019FC68EB00B8121B /* SenderAddress.m */; };
+		B5C676B719FC6E1D00B8121B /* HomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C676B619FC6E1D00B8121B /* HomeModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,10 @@
 		B5B1CB3519F30E7F00AB726F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		B5C676AC19FC4D2000B8121B /* RecvTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecvTableViewController.h; path = ../RecvTableViewController.h; sourceTree = "<group>"; };
 		B5C676AD19FC4D2000B8121B /* RecvTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecvTableViewController.m; path = ../RecvTableViewController.m; sourceTree = "<group>"; };
+		B5C676AF19FC68EB00B8121B /* SenderAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenderAddress.h; sourceTree = "<group>"; };
+		B5C676B019FC68EB00B8121B /* SenderAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SenderAddress.m; sourceTree = "<group>"; };
+		B5C676B519FC6E1D00B8121B /* HomeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeModel.h; path = ../HomeModel.h; sourceTree = "<group>"; };
+		B5C676B619FC6E1D00B8121B /* HomeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeModel.m; path = ../HomeModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +129,10 @@
 				B5485A9C19EA09EE00FFC5AE /* LaunchScreen.xib */,
 				B5485A9119EA09EE00FFC5AE /* Shew_v4.xcdatamodeld */,
 				B5485A8A19EA09EE00FFC5AE /* Supporting Files */,
+				B5C676AF19FC68EB00B8121B /* SenderAddress.h */,
+				B5C676B019FC68EB00B8121B /* SenderAddress.m */,
+				B5C676B519FC6E1D00B8121B /* HomeModel.h */,
+				B5C676B619FC6E1D00B8121B /* HomeModel.m */,
 			);
 			path = Shew_v4;
 			sourceTree = "<group>";
@@ -254,6 +264,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5C676B719FC6E1D00B8121B /* HomeModel.m in Sources */,
+				B5C676B119FC68EB00B8121B /* SenderAddress.m in Sources */,
 				B5B1CB2E19F1BDFB00AB726F /* SendViewController.m in Sources */,
 				B5485A9319EA09EE00FFC5AE /* Shew_v4.xcdatamodeld in Sources */,
 				B5485A9019EA09EE00FFC5AE /* AppDelegate.m in Sources */,

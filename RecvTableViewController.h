@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HomeModel.h"
 
-@interface RecvTableViewController : UITableViewController
+@interface RecvTableViewController : UITableViewController  <UITableViewDataSource, UITableViewDelegate, HomeModelProtocol>
+
+@property (strong, nonatomic) IBOutlet UITableView *tableList;
 
 @end

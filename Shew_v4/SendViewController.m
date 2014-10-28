@@ -75,7 +75,7 @@
         // get the current location
         Common *common = [[Common alloc] init];
         [common viewDidLoad];
-        [Common alertStatus:[common deviceLocation]:@"Location":0];
+        //[Common alertStatus:[common deviceLocation]:@"Location":0];
         
         // post location to the server
         NSString *send;
@@ -86,7 +86,6 @@
 
         
         type= @"description=SEND";
-        userid= @"userid=1";
         
         NSString *location= [common deviceLocation];
         NSArray *ary_location = [location componentsSeparatedByString:@","];

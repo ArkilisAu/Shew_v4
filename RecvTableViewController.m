@@ -7,8 +7,15 @@
 //
 
 #import "RecvTableViewController.h"
+#import "Common.h"
+#import "SenderAddress.h"
+#import "HomeModel.h"
 
 @interface RecvTableViewController ()
+{
+    HomeModel *_homeModel;
+    NSArray *_feedItems;
+}
 
 @end
 
@@ -21,7 +28,104 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    //self.navigationController.
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style: UIBarButtonItemStyleBordered target:self action:@selector(Back)];
+    self.navigationItem.leftBarButtonItem = backButton;
+    
+
+    // get the current location
+    Common *common = [[Common alloc] init];
+    [common viewDidLoad];
+    NSString *location= [common deviceLocation];
+    NSArray *ary_location = [location componentsSeparatedByString:@","];
+    NSString *lat= ary_location[0];
+    NSString *lgt= ary_location[1];
+    
+    NSLog(lat);
+    NSLog(lgt);
+    
+    // get the list of nearby locations
+    // Post data
+    NSString *type =@"RECV";
+    NSString *send= [NSString stringWithFormat:@"userid=%d&%@&latitude=%@&longitude=%@&description=%@", Common.userid, type, lat, lgt, type];
+    [common postToAction:send];
+
+    
+    // populate the table view
+    self.tableList.delegate = self;
+    self.tableList.dataSource = self;
+    
+    // Create array object and assign it to _feedItems variable
+    _feedItems = [[NSArray alloc] init];
+    
+    // Create new HomeModel object and assign it to _homeModel variable
+    _homeModel = [[HomeModel alloc] init];
+    
+    // Set this view controller object as the delegate for the home model object
+    _homeModel.delegate = self;
+    
+    // Call the download items method of the home model object
+    [_homeModel downloadItems:lat :lgt];
+
+    
+}
+
+
+-(void)itemsDownloaded:(NSArray *)items
+{
+    // This delegate method will get called when the items are finished downloading
+    
+    // Set the downloaded items to the array
+    _feedItems = items;
+    
+    // Reload the table view
+    [self.tableList reloadData];
+}
+
+
+#pragma mark Table View Delegate Methods
+
+/*
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of feed items (initially 0)
+    NSLog(@"Table items: %d", _feedItems.count);
+    return _feedItems.count;
+}
+ */
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+#warning Incomplete method implementation.
+    // Return the number of rows in the section.
+    return _feedItems.count;
+}
+
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Retrieve cell
+    NSString *cellIdentifier = @"BasicCell";
+    UITableViewCell *myCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    // Get the location to be shown
+    SenderAddress *item = _feedItems[indexPath.row];
+    
+    // Get references to labels of cell
+    
+    NSLog(item.fileurl);
+    myCell.textLabel.text = item.fileurl;
+    return myCell;
+}
+
+
+- (IBAction)Back
+{
+    [self dismissViewControllerAnimated:YES completion:nil]; // ios 6
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,19 +133,21 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
 
+/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
+    #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+        return _feedItems.count;
+    //return 0;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
+*/
+
+
+
+
+
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
