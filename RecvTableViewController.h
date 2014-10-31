@@ -10,7 +10,7 @@
 #import "HomeModel.h"
 #import "SWTableViewCell.h"
 
-@interface RecvTableViewController : UITableViewController  <UITableViewDataSource, UITableViewDelegate, SWTableViewCellDelegate, HomeModelProtocol>
+@interface RecvTableViewController : UITableViewController  <UITableViewDataSource, UITableViewDelegate, HomeModelProtocol>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableList;
 

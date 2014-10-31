@@ -16,9 +16,10 @@
 {
     HomeModel *_homeModel;
     NSArray *_feedItems;
+    NSArray *objectsToShare;
 }
 
-@property (nonatomic, weak) UIRefreshControl *refreshControl;
+//@property (nonatomic, weak) UIRefreshControl *refreshControl;
 
 @end
 
@@ -56,18 +57,19 @@
     
     // populate the table view
     
-     self.tableList.delegate = self;
-     self.tableList.dataSource = self;
+     //self.tableList.delegate = self;
+     //self.tableList.dataSource = self;
      
     
     // Setup refresh control for example app
+    /*
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(toggleCells:) forControlEvents:UIControlEventValueChanged];
     refreshControl.tintColor = [UIColor blueColor];
     
     [self.tableView addSubview:refreshControl];
     self.refreshControl = refreshControl;
-    
+    */
     
     // Create array object and assign it to _feedItems variable
     _feedItems = [[NSArray alloc] init];
@@ -99,6 +101,7 @@
 
 #pragma mark - UIRefreshControl Selector
 
+/*
 - (void)toggleCells:(UIRefreshControl*)refreshControl
 {
     [refreshControl beginRefreshing];
@@ -107,7 +110,7 @@
     [self.tableView reloadData];
     [refreshControl endRefreshing];
 }
-
+*/
 #pragma mark Table View Delegate Methods
 
 /*
@@ -127,6 +130,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"cell selected at index path %ld:%ld", (long)indexPath.section, (long)indexPath.row);
     NSLog(@"selected cell index path is %@", [self.tableView indexPathForSelectedRow]);
+    
+    // Add to Global Variable
+
+    int rowIndex = indexPath.row;
+    SenderAddress *selectedObject = [_feedItems objectAtIndex:rowIndex];
+    objectsToShare = selectedObject.fileurl;
+
+    NSLog(@"selected url %@", (SenderAddress*)selectedObject.fileurl);
+    
     
     if (!tableView.isEditing) {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -165,7 +177,7 @@
     
     cell = [[SWTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     
-    cell.leftUtilityButtons = [self leftButtons];
+    //cell.leftUtilityButtons = [self leftButtons];
     cell.rightUtilityButtons = [self rightButtons];
     cell.delegate = self;
     
@@ -175,7 +187,10 @@
     // Get references to labels of cell
     
     NSLog(item.fileurl);
-    cell.textLabel.text = item.fileurl;
+    
+    // Get file name
+    NSString *filename = [item.fileurl lastPathComponent];
+    cell.textLabel.text = filename;
     
     
     return cell;
@@ -189,14 +204,15 @@
     NSMutableArray *rightUtilityButtons = [NSMutableArray new];
     [rightUtilityButtons sw_addUtilityButtonWithColor:
      [UIColor colorWithRed:0.78f green:0.78f blue:0.8f alpha:1.0]
-                                                title:@"More"];
-    [rightUtilityButtons sw_addUtilityButtonWithColor:
-     [UIColor colorWithRed:1.0f green:0.231f blue:0.188 alpha:1.0f]
-                                                title:@"Delete"];
+                                                title:@"Save"];
+    //[rightUtilityButtons sw_addUtilityButtonWithColor:
+    // [UIColor colorWithRed:1.0f green:0.231f blue:0.188 alpha:1.0f]
+    //                                            title:@"Delete"];
     
     return rightUtilityButtons;
 }
 
+/*
 - (NSArray *)leftButtons
 {
     NSMutableArray *leftUtilityButtons = [NSMutableArray new];
@@ -216,6 +232,7 @@
     
     return leftUtilityButtons;
 }
+ */
 
 - (IBAction)Back
 {
@@ -227,6 +244,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    //NSLog(@"Will begin dragging");
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    //NSLog(@"Did Scroll");
+}
 
 #pragma mark - SWTableViewDelegate
 
@@ -269,22 +296,27 @@
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index
 {
     switch (index) {
+        // more button
         case 0:
         {
             NSLog(@"More button was pressed");
-            UIAlertView *alertTest = [[UIAlertView alloc] initWithTitle:@"Hello" message:@"More more more" delegate:nil cancelButtonTitle:@"cancel" otherButtonTitles: nil];
-            [alertTest show];
+            //UIAlertView *alertTest = [[UIAlertView alloc] initWithTitle:@"Hello" message:@"More more more" delegate:nil cancelButtonTitle:@"cancel" otherButtonTitles: nil];
+            //[alertTest show];
+            
+            /*
+            NSString *textToShare = @"Foobar!";
+            NSURL *myWebsite = [NSURL URLWithString:@"http://www.stackoverflow.com/"];
+            
+            NSString *localPath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"temp.foo"];
+            NSURL *localFile = [NSURL fileURLWithPath:localPath];
+            
+            objectsToShare = @[textToShare, myWebsite, localFile];
+            
+            */
+            UIActivityViewController *controller = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
+            [self presentViewController:controller animated:YES completion:nil];
             
             [cell hideUtilityButtonsAnimated:YES];
-            break;
-        }
-        case 1:
-        {
-            // Delete button was pressed
-            NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
-            
-            [_feedItems[cellIndexPath.section] removeObjectAtIndex:cellIndexPath.row];
-            [self.tableView deleteRowsAtIndexPaths:@[cellIndexPath] withRowAnimation:UITableViewRowAnimationLeft];
             break;
         }
         default:
